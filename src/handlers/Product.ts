@@ -4,7 +4,7 @@ import Producto from "../models/Producto.model"
 export const createProduct = async (req: Request, res: Response) => {
   const producto = await Producto.create(req.body) //creamos un nuevo producto
 
-  res.json({data: producto}) //retornar el producto que se ingreso a la base de Datos
+  res.status(201).json({data: producto}) //retornar el producto que se ingreso a la base de Datos
 
   //  res.json("Desde Post")
 }
