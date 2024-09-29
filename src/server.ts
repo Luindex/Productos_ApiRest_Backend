@@ -2,6 +2,7 @@ import express from "express"
 import db from "./config/db"
 import router from "./router"
 import colors from "colors"
+import morgan from "morgan"
 import cors, {CorsOptions} from "cors"
 
 export async function connectDB() {
@@ -33,6 +34,8 @@ const corsOptions: CorsOptions = {
 server.use(cors(corsOptions))
 
 server.use(express.json())
+
+server.use(morgan("dev"))
 
 server.use("/api/productos", router)
 
